@@ -8,14 +8,41 @@
 <h1>Delete Profile</h1>
 
 <table>
-  <tr>
-    <td>Profile ID</td><td th:text="${profile.profileId}"></td>
-    <td>Firstname</td><td th:text="${profile.firstName}"></td>
-    <td>Lastname</td><td th:text="${profile.lastName}"></td>
-    <td>Email</td><td th:text="${profile.email}"></td>
-    <td>Date of birth</td><td th:text="${profile.dateOfBirth}"></td>
-    <td>Gender</td><td th:text="${profile.gender}"></td>
-  </tr>
+    <tr>
+        <td>Profile ID</td>
+        <td th:text="${profile.profileId}"></td>
+    </tr>
+    <tr>
+        <td>Firstname</td>
+        <td th:text="${profile.firstName}"></td>
+    </tr>
+    <tr>
+        <td>Lastname</td>
+        <td th:text="${profile.lastName}"></td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td th:text="${profile.email}"></td>
+    </tr>
+    <tr>
+        <td>Date of Birth</td>
+        <td>
+            <span th:text="${profile.dateOfBirth.getDayOfMonth() + '/' + profile.dateOfBirth.getMonthValue() + '/' + profile.dateOfBirth.getYear()}"></span>
+
+        </td>
+    </tr>
+    <tr>
+        <td>Gender</td>
+        <td th:text="${profile.gender}"></td>
+    </tr>
+
+    <form action="/delete-profile" method="post">
+        <input type="hidden" name="profileId" th:value="${profile.profileId}">
+        <input type="submit" th:value="${'Delete profile ' + profile.profileId}">
+    </form>
+    <form action="/" method="get">
+        <input type="submit" value="Cancel">
+    </form>
 </table>
 </body>
 </html>

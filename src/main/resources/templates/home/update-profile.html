@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Profile</title>
+</head>
+<body>
+<h1>Update Profile</h1>
+<table>
+  <tr>
+    <form action="/update-profile" method="post">
+      <td>Id</td><td><input type="text" name="id" th:value="${profile.profileId}"></td>
+      <br>
+      <td>Firstname</td><td><input type="text" name="firstName" th:value="${profile.firstName}"></td>
+      <br>
+      <td>Lastname</td><td><input type="text" name="lastName" th:value="${profile.lastName}"></td>
+      <br>
+      <td>Email</td><td><input type="text" name="email" th:value="${profile.email}"></td>
+      <br>
+      <td>Birthday</td><td><input type="datetime-local" name="dateOfBirth" th:value="${profile.dateOfBirth}"></td>
+      <br>
+      <td>Gender</td>
+      <td>
+        <input class="radio" type="radio" name="gender" id="FEMALE" value="FEMALE" th:checked="${profile.gender == 'Female'}">
+        <label class="radio-label" for="FEMALE">Female</label>
+
+        <input class="radio" type="radio" name="gender" id="MALE" value="MALE" th:checked="${profile.gender == 'Male'}">
+        <label class="radio-label" for="MALE">Male</label>
+
+        <input class="radio" type="radio" name="gender" id="OTHER" value="OTHER" th:checked="${profile.gender == 'Other'}">
+        <label class="radio-label" for="OTHER">Other</label>
+      </td>
+      <br>
+      <input type="submit" value="Update profile">
+    </form>
+    <form action="/" method="get">
+      <input type="submit" value="Cancel">
+    </form>
+  </tr>
+</table>
+</body>
+</html>

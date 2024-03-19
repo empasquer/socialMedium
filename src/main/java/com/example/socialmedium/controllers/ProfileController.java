@@ -18,9 +18,15 @@ public class ProfileController {
     ProfileService profileService;
 
     @GetMapping("/delete-profile")
-    public String delete(@RequestParam int profileId, Model model) {
+    public String delete(@RequestParam("id") int profileId, Model model) {
         model.addAttribute(profileService.getProfile(profileId));
         return "/home/delete-profile";
+    }
+
+    @PostMapping("/delete-profile")
+    public String delete(@RequestParam int profileId) {
+        profileService.delete(profileId);
+        return "redirect:/";
     }
 
     @PostMapping("/new-profile")
@@ -30,6 +36,22 @@ public class ProfileController {
         profileService.insert(firstName, lastName, email, dateOfBirth, gender);
         return "redirect:/";
     }
+
+    @GetMapping("/update-profile")
+    public String update(@RequestParam("id") int profileId, Model model) {
+        model.addAttribute(profileService.getProfile(profileId));
+        return "/home/update-profile";
+    }
+
+    @PostMapping("/update-profile")
+    public String update(@RequestParam("id") int profileId, @RequestParam String firstName,
+                         @RequestParam String lastName, @RequestParam String email,
+                         @RequestParam LocalDateTime dateOfBirth, @RequestParam String gender) {
+        profileService.updateProfile(profileId, firstName, lastName, email, dateOfBirth, gender);
+        return "redirect:/";
+    }
+
+
 
 
 

@@ -33,4 +33,21 @@ public class ProfileRepository {
         RowMapper<Profile> rowMapper = new BeanPropertyRowMapper<>(Profile.class);
         return jdbcTemplate.queryForObject(query, rowMapper, profileId);
     }
+
+    public void delete(int profileId) {
+        String query = "DELETE FROM profile WHERE profile_id = ?;";
+        jdbcTemplate.update(query, profileId);
+    }
+
+    public void update(int profileId, String firstName, String lastName, String email, LocalDateTime dateOfBirth, String gender) {
+        String query = "UPDATE profile " +
+                "SET firstname = ?, " +
+                "lastname = ?, " +
+                "email = ?, " +
+                "date_of_birth = ?, " +
+                "gender = ? " +
+                "WHERE profile.profile_id = ?";
+
+        jdbcTemplate.update(query, firstName, lastName, email, dateOfBirth, gender, profileId);
+    }
 }

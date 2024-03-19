@@ -24,4 +24,13 @@ public class ProfileService {
     public Profile getProfile(int profileId) {
         return profileRepository.getProfile(profileId);
     }
+
+    public void delete(int profileId) {
+        profileRepository.delete(profileId);
+    }
+
+
+    public void updateProfile(int profileId, String firstName, String lastName, String email, LocalDateTime dateOfBirth, String gender) {
+        profileRepository.update(profileId, firstName, lastName, email, dateOfBirth, gender);
+    }
 }
