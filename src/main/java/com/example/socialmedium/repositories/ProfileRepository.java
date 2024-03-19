@@ -28,4 +28,9 @@ public class ProfileRepository {
         jdbcTemplate.update(query, firstName, lastName, email, dateOfBirth, gender);
     }
 
+    public Profile getProfile(int profileId) {
+        String query = "SELECT * FROM profile WHERE profile_id = ?;";
+        RowMapper<Profile> rowMapper = new BeanPropertyRowMapper<>(Profile.class);
+        return jdbcTemplate.queryForObject(query, rowMapper, profileId);
+    }
 }

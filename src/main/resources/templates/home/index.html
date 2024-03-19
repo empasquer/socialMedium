@@ -17,6 +17,7 @@
     <td>Email</td>
     <td>Date of Birth</td>
     <td>Gender</td>
+    <td>DELETE</td>
     </thead>
     <tbody>
     <tr th:each="profile : ${profiles}">
@@ -25,11 +26,17 @@
         <td th:text="${profile.lastName}"></td>
         <td th:text="${profile.email}"></td>
         <td>
-            <!--<span th:text="${profile.dateOfBirth.getDayOfMonth()}"></span>-->
             <span th:text="${profile.dateOfBirth.getDayOfMonth() + '/' + profile.dateOfBirth.getMonthValue() + '/' + profile.dateOfBirth.getYear()}"></span>
 
         </td>
         <td th:text="${profile.gender}"></td>
+
+        <td>
+            <form action="/delete-profile" method="get">
+                <input type="hidden" name="id" th:value="${profile.profileId}">
+                <input class="submit" type="submit" value="Delete Profile">
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>

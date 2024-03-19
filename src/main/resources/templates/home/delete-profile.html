@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Profile</title>
+</head>
+<body>
+<h1>Delete Profile</h1>
+
+<table>
+  <tr>
+    <td>Profile ID</td><td th:text="${profile.profileId}"></td>
+    <td>Firstname</td><td th:text="${profile.firstName}"></td>
+    <td>Lastname</td><td th:text="${profile.lastName}"></td>
+    <td>Email</td><td th:text="${profile.email}"></td>
+    <td>Date of birth</td><td th:text="${profile.dateOfBirth}"></td>
+    <td>Gender</td><td th:text="${profile.gender}"></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -11,15 +11,17 @@ import java.util.List;
 @Service
 public class ProfileService {
     @Autowired
-    ProfileRepository profileReposoitory;
+    ProfileRepository profileRepository;
 
     public List<Profile> getProfiles() {
-        return profileReposoitory.getProfiles();
+        return profileRepository.getProfiles();
     }
 
     public void insert(String firstName, String lastName, String email, LocalDateTime dateOfBirth, String gender) {
-        profileReposoitory.insert(firstName, lastName, email, dateOfBirth, gender);
+        profileRepository.insert(firstName, lastName, email, dateOfBirth, gender);
     }
 
-
+    public Profile getProfile(int profileId) {
+        return profileRepository.getProfile(profileId);
+    }
 }

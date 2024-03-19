@@ -1,9 +1,11 @@
 package com.example.socialmedium.controllers;
 
+import com.example.socialmedium.models.Profile;
 import com.example.socialmedium.services.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -15,6 +17,12 @@ public class ProfileController {
     @Autowired
     ProfileService profileService;
 
+    @GetMapping("/delete-profile")
+    public String delete(@RequestParam int profileId, Model model) {
+        model.addAttribute(profileService.getProfile(profileId));
+        return "/home/delete-profile";
+    }
+
     @PostMapping("/new-profile")
     public String insert(@RequestParam String firstName, @RequestParam String lastName,
                          @RequestParam String email, @RequestParam LocalDateTime dateOfBirth,
@@ -22,4 +30,7 @@ public class ProfileController {
         profileService.insert(firstName, lastName, email, dateOfBirth, gender);
         return "redirect:/";
     }
+
+
+
 }
