@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Social Medium</title>
+</head>
+<body>
+<h1>Social Medium</h1>
+
+<table>
+    <thead>
+    <td>ID</td>
+    <td>FirstName</td>
+    <td>LastName</td>
+    <td>Email</td>
+    <td>Date of Birth</td>
+    <td>Gender</td>
+    </thead>
+    <tbody>
+    <tr th:each="profile : ${profiles}">
+        <td th:text="${profile.id}"></td>
+        <td th:text="${profile.firstName}"></td>
+        <td th:text="${profile.lastName}"></td>
+        <td th:text="${profile.email}"></td>
+        <td th:text="${profile.dateOfBirth}"></td>
+        <td th:text="${profile.gender.toString()}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
