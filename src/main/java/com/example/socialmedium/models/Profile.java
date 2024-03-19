@@ -6,7 +6,8 @@ public class Profile {
     private int profileId;
     private String firstName, lastName, email;
     private LocalDateTime dateOfBirth;
-    private Gender gender;
+    private String gender;
+    /*private Gender gender;*/
 
     public Profile() {
     }
@@ -31,7 +32,7 @@ public class Profile {
         return dateOfBirth;
     }
 
-    public Gender getGender() {
+    public String getGender() {
         return gender;
     }
 
@@ -55,7 +56,7 @@ public class Profile {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public void setGender(Gender gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 }

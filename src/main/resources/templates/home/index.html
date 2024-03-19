@@ -18,12 +18,16 @@
     </thead>
     <tbody>
     <tr th:each="profile : ${profiles}">
-        <td th:text="${profile.id}"></td>
+        <td th:text="${profile.profileId}"></td>
         <td th:text="${profile.firstName}"></td>
         <td th:text="${profile.lastName}"></td>
         <td th:text="${profile.email}"></td>
-        <td th:text="${profile.dateOfBirth}"></td>
-        <td th:text="${profile.gender.toString()}"></td>
+        <td>
+            <!--<span th:text="${profile.dateOfBirth.getDayOfMonth()}"></span>-->
+            <span th:text="${profile.dateOfBirth.getDayOfMonth() + '/' + profile.dateOfBirth.getMonthValue() + '/' + profile.dateOfBirth.getYear()}"></span>
+
+        </td>
+        <td th:text="${profile.gender}"></td>
     </tr>
     </tbody>
 </table>
