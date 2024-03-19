@@ -7,7 +7,6 @@ public class Profile {
     private String firstName, lastName, email;
     private LocalDateTime dateOfBirth;
     private String gender;
-    /*private Gender gender;*/
 
     public Profile() {
     }

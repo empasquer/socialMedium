@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Profile</title>
+</head>
+<body>
+<h1>Add new profile</h1>
+<table>
+    <tr>
+        <form action="/new-profile" method="post">
+            <td>Firstname</td><td><input type="text" name="firstName"></td>
+            <br>
+            <td>Lastname</td><td><input type="text" name="lastName"></td>
+            <br>
+            <td>Email</td><td><input type="text" name="email"></td>
+            <br>
+            <td>Birthday</td><td><input type="datetime-local" name="dateOfBirth"></td>
+            <br>
+            <td>Gender</td>
+            <td>
+                <label class="label">Gender</label>
+                <input class="radio" type="radio" name="gender" id="FEMALE" value="FEMALE">
+                <label class="radio-label" for="FEMALE">Female</label>
+
+                <input class="radio" type="radio" name="gender" id="MALE" value="MALE">
+                <label class="radio-label" for="MALE">Male</label>
+
+                <input class="radio" type="radio" name="gender" id="OTHER" value="OTHER">
+                <label class="radio-label" for="OTHER">Other</label>
+            </td>
+            <br>
+            <input type="submit" value="Add new profile">
+        </form>
+        <form action="/" method="get">
+            <input type="submit" value="Cancel">
+        </form>
+    </tr>
+</table>
+</body>
+</html>

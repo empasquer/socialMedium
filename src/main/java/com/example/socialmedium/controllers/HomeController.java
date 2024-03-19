@@ -15,4 +15,9 @@ public class HomeController {
         model.addAttribute( "profiles",profileService.getProfiles());
         return "/home/index";
     }
+
+    @GetMapping("/new-profile")
+    public String newProfile() {
+        return "/home/new-profile";
+    }
 }
