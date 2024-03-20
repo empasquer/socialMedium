@@ -6,6 +6,52 @@
 </head>
 <body>
 <h1>Social Medium</h1>
+
+<!--<form action="/new-profile" method="get">
+    <input type="submit" value="Add new profile">
+</form>-->
+<table>
+    <thead>
+    <td>ID</td>
+    <td>ProfileId</td>
+    <td>Title</td>
+    <td>Content</td>
+    <td>Created at</td>
+
+<!--    <td>UPDATE</td>-->
+    <td>DELETE</td>
+    </thead>
+    <tbody>
+    <tr th:each="post : ${posts}">
+        <td th:text="${post.postId}"></td>
+        <td th:text="${post.profileId}"></td>
+        <td th:text="${post.title}"></td>
+        <td th:text="${post.content}"></td>
+        <td th:text="${post.createdAt}"></td>
+
+  <!--      <td>
+            <form action="/update-profile" method="get">
+                <input type="hidden" name="id" th:value="${profile.profileId}">
+                <input class="submit" type="submit" value="Update">
+            </form>
+        </td>-->
+        <td>
+            <form action="/delete-post" method="get">
+                <input type="hidden" name="id" th:value="${post.postId}">
+                <input class="submit" type="submit" value="Delete">
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<!--*************-->
+
+
+
+
+
 <form action="/new-profile" method="get">
     <input type="submit" value="Add new profile">
 </form>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Profile</title>
+</head>
+<body>
+<h1>Delete Post</h1>
+
+<table>
+    <tr>
+        <td>Post ID</td>
+        <td th:text="${post.postId}"></td>
+    </tr>
+    <tr>
+        <td>Profile ID</td>
+        <td th:text="${post.profileId}"></td>
+    </tr>
+    <tr>
+        <td>Title</td>
+        <td th:text="${post.title}"></td>
+    </tr>
+    <tr>
+        <td>Content</td>
+        <td th:text="${post.content}"></td>
+    </tr>
+    <tr>
+        <td>Created</td>
+        <td th:text="${post.createdAt}"></td>
+    </tr>
+
+    <form action="/delete-post" method="post">
+        <input type="hidden" name="postId" th:value="${post.postId}">
+        <input type="submit" th:value="${'Delete post ' + post.postId}">
+    </form>
+    <form action="/" method="get">
+        <input type="submit" value="Cancel">
+    </form>
+</table>
+</body>
+</html>
