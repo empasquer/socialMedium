@@ -24,4 +24,9 @@ public class HomeController {
     public String newProfile() {
         return "/home/new-profile";
     }
+
+    @GetMapping("/new-post")
+    public String newPost() {
+        return "/home/new-post";
+    }
 }

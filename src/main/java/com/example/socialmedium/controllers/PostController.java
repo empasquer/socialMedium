@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
+
 @Controller
 public class PostController {
     @Autowired PostService postService;
@@ -26,5 +30,15 @@ public class PostController {
         postService.delete(postId);
         return "redirect:/";
     }
+
+    @PostMapping("/new-post")
+    public String insert(@RequestParam int profileId, @RequestParam String title,
+                         @RequestParam String content) {
+        LocalDate currentDate = LocalDate.now();
+        postService.insert(profileId, title, content, currentDate);
+        return "redirect:/";
+    }
+
+
 
 }
