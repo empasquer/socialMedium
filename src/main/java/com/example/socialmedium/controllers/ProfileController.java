@@ -52,13 +52,20 @@ public class ProfileController {
     }
 
 
+    private boolean ascendingOrder = true;
+
     @GetMapping("/sort-by-lastname")
     public String sortByLastName(Model model) {
-        List<Profile> sortedProfiles = profileService.sortByLastName();
+        List<Profile> sortedProfiles;
+        if (ascendingOrder) {
+            sortedProfiles = profileService.sortByLastNameAsc();
+        } else {
+            sortedProfiles = profileService.sortByLastNameDesc();
+        }
+        ascendingOrder = !ascendingOrder; // Toggle the sorting order
         model.addAttribute("profiles", sortedProfiles);
         return "home/index";
     }
-
 
 
 

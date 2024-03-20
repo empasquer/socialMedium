@@ -34,7 +34,11 @@ public class ProfileService {
         profileRepository.update(profileId, firstName, lastName, email, dateOfBirth, gender);
     }
 
-    public List<Profile> sortByLastName() {
-        return profileRepository.sortByLastName();
+    public List<Profile> sortByLastNameAsc() {
+        return profileRepository.sortByLastNameAsc();
+    }
+
+    public List<Profile> sortByLastNameDesc() {
+        return profileRepository.sortByLastNameDesc();
     }
 }

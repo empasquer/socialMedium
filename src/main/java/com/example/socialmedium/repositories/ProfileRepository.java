@@ -51,12 +51,16 @@ public class ProfileRepository {
         jdbcTemplate.update(query, firstName, lastName, email, dateOfBirth, gender, profileId);
     }
 
-    public List<Profile> sortByLastName() {
-        String query = "SELECT * FROM profile ORDER BY lastname;";
+    public List<Profile> sortByLastNameAsc() {
+        String query = "SELECT * FROM profile ORDER BY lastname ASC;";
         RowMapper rowMapper = new BeanPropertyRowMapper(Profile.class);
         return jdbcTemplate.query(query, rowMapper);
     }
 
 
-
+    public List<Profile> sortByLastNameDesc() {
+        String query = "SELECT * FROM profile ORDER BY lastname DESC;";
+        RowMapper rowMapper = new BeanPropertyRowMapper(Profile.class);
+        return jdbcTemplate.query(query, rowMapper);
+    }
 }
