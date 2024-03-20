@@ -33,4 +33,8 @@ public class ProfileService {
     public void updateProfile(int profileId, String firstName, String lastName, String email, LocalDateTime dateOfBirth, String gender) {
         profileRepository.update(profileId, firstName, lastName, email, dateOfBirth, gender);
     }
+
+    public List<Profile> sortByLastName() {
+        return profileRepository.sortByLastName();
+    }
 }

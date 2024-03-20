@@ -5,12 +5,10 @@ import com.example.socialmedium.services.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-
+import java.util.List;
 
 @Controller
 public class ProfileController {
@@ -18,9 +16,10 @@ public class ProfileController {
     ProfileService profileService;
 
     @GetMapping("/delete-profile")
-    public String delete(@RequestParam("id") int profileId, Model model) {
-        model.addAttribute(profileService.getProfile(profileId));
-        return "/home/delete-profile";
+    public String showDeleteForm(@RequestParam("id") int profileId, Model model) {
+        Profile profile = profileService.getProfile(profileId);
+        model.addAttribute("profile", profile);
+        return "home/delete-profile";
     }
 
     @PostMapping("/delete-profile")
@@ -38,9 +37,10 @@ public class ProfileController {
     }
 
     @GetMapping("/update-profile")
-    public String update(@RequestParam("id") int profileId, Model model) {
-        model.addAttribute(profileService.getProfile(profileId));
-        return "/home/update-profile";
+    public String showUpdateForm(@RequestParam("id") int profileId, Model model) {
+        Profile profile = profileService.getProfile(profileId);
+        model.addAttribute("profile", profile);
+        return "home/update-profile";
     }
 
     @PostMapping("/update-profile")
@@ -51,6 +51,13 @@ public class ProfileController {
         return "redirect:/";
     }
 
+
+    @GetMapping("/sort-by-lastname")
+    public String sortByLastName(Model model) {
+        List<Profile> sortedProfiles = profileService.sortByLastName();
+        model.addAttribute("profiles", sortedProfiles);
+        return "home/index";
+    }
 
 
 
