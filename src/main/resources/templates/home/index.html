@@ -18,7 +18,7 @@
     <td>Content</td>
     <td>Created at</td>
 
-<!--    <td>UPDATE</td>-->
+    <td>UPDATE</td>
     <td>DELETE</td>
     </thead>
     <tbody>
@@ -29,12 +29,12 @@
         <td th:text="${post.content}"></td>
         <td th:text="${post.createdAt}"></td>
 
-  <!--      <td>
-            <form action="/update-profile" method="get">
-                <input type="hidden" name="id" th:value="${profile.profileId}">
+        <td>
+            <form action="/update-post" method="get">
+                <input type="hidden" name="id" th:value="${post.postId}">
                 <input class="submit" type="submit" value="Update">
             </form>
-        </td>-->
+        </td>
         <td>
             <form action="/delete-post" method="get">
                 <input type="hidden" name="id" th:value="${post.postId}">

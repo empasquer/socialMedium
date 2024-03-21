@@ -34,11 +34,24 @@ public class PostController {
     @PostMapping("/new-post")
     public String insert(@RequestParam int profileId, @RequestParam String title,
                          @RequestParam String content) {
-        LocalDate currentDate = LocalDate.now();
+        LocalDateTime currentDate = LocalDateTime.now();
         postService.insert(profileId, title, content, currentDate);
         return "redirect:/";
     }
 
+    @GetMapping("/update-post")
+    public String showUpdatePost(@RequestParam("id") int postId, Model model) {
+        Post post = postService.getPost(postId);
+        model.addAttribute("post", post);
+        return "home/update-post";
+    }
+
+    @PostMapping("/update-post")
+    public String update(@RequestParam("postId") int postId, @RequestParam int profileId,
+                         @RequestParam String title, @RequestParam String content) {
+        postService.updatePost(postId, profileId, title, content);
+        return "redirect:/";
+    }
 
 
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class ProfileController {
 
     @PostMapping("/new-profile")
     public String insert(@RequestParam String firstName, @RequestParam String lastName,
-                         @RequestParam String email, @RequestParam LocalDateTime dateOfBirth,
+                         @RequestParam String email, @RequestParam LocalDate dateOfBirth,
                          @RequestParam String gender) {
         profileService.insert(firstName, lastName, email, dateOfBirth, gender);
         return "redirect:/";

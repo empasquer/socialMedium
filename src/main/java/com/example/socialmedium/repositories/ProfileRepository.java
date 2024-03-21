@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class ProfileRepository {
 
     }
 
-    public void insert(String firstName, String lastName, String email, LocalDateTime dateOfBirth, String gender) {
+    public void insert(String firstName, String lastName, String email, LocalDate dateOfBirth, String gender) {
         String query = "INSERT INTO profile(firstname, lastname, email, date_of_birth, gender) " +
                 "VALUES(?, ?, ?, ?, ?);";
         jdbcTemplate.update(query, firstName, lastName, email, dateOfBirth, gender);

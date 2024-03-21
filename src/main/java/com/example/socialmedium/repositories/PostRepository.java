@@ -34,9 +34,19 @@ public class PostRepository {
         jdbcTemplate.update(query, postId);
     }
 
-    public void insert(int profileId, String title, String content, LocalDate createdAt) {
+    public void insert(int profileId, String title, String content, LocalDateTime createdAt) {
         String query = "INSERT INTO post (profile_id, title, content, created_at) VALUES (?, ?, ?, ?)";
         jdbcTemplate.update(query, profileId, title, content, createdAt);
+    }
+
+    public void update(int postId, int profileId, String title, String content) {
+        String query = "UPDATE post " +
+                "SET profile_id = ?, " +
+                "title = ?, " +
+                "content = ? " +
+                "WHERE post_id = ?";
+
+        jdbcTemplate.update(query, profileId, title, content, postId);
     }
 
 }

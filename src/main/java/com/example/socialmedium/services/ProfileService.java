@@ -5,6 +5,7 @@ import com.example.socialmedium.repositories.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class ProfileService {
         return profileRepository.getProfiles();
     }
 
-    public void insert(String firstName, String lastName, String email, LocalDateTime dateOfBirth, String gender) {
+    public void insert(String firstName, String lastName, String email, LocalDate dateOfBirth, String gender) {
         profileRepository.insert(firstName, lastName, email, dateOfBirth, gender);
     }
 
